@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 
 import styles from "./page.module.scss";
+import CurrentYear from "./components/CurrentYear";
+import { Suspense } from "react";
 
 const categories = [
   {
@@ -489,7 +491,13 @@ export default function Home() {
           </div>
 
           <div className={styles.footerBottom}>
-            <span>© {new Date().getFullYear()} SkillHub Academy</span>
+            <span>
+              ©{" "}
+              <Suspense fallback={null}>
+                <CurrentYear />
+              </Suspense>{" "}
+              SkillHub Academy
+            </span>
             <span>طراحی شده برای یادگیری و پیشرفت</span>
           </div>
         </div>
