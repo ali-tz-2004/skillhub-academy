@@ -1,0 +1,249 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import {
+  Search,
+  Clock3,
+  Users,
+  ArrowLeft,
+  BookOpen,
+  SlidersHorizontal,
+} from "lucide-react";
+import styles from "./page.module.scss";
+
+const courses = [
+  {
+    id: 1,
+    title: "دوره جامع شبکه و +Network",
+    category: "شبکه و زیرساخت",
+    level: "مقدماتی",
+    duration: "40 ساعت",
+    students: 120,
+    price: "3,500,000",
+    description:
+      "آشنایی با مفاهیم شبکه، تجهیزات، پروتکل ها و اصول راه اندازی شبکه های کامپیوتری.",
+    icon: "🌐",
+    color: "blue",
+  },
+  {
+    id: 2,
+    title: "آموزش تخصصی CCNA",
+    category: "شبکه و زیرساخت",
+    level: "متوسط",
+    duration: "60 ساعت",
+    students: 85,
+    price: "5,000,000",
+    description:
+      "یادگیری مفاهیم مسیریابی، سوئیچینگ و پیکربندی تجهیزات شبکه سیسکو.",
+    icon: "🔗",
+    color: "purple",
+  },
+  {
+    id: 3,
+    title: "طراحی وب با HTML و CSS",
+    category: "برنامه نویسی",
+    level: "مقدماتی",
+    duration: "30 ساعت",
+    students: 160,
+    price: "2,500,000",
+    description:
+      "شروع مسیر طراحی وب با یادگیری ساختار صفحات و طراحی رابط کاربری.",
+    icon: "💻",
+    color: "orange",
+  },
+  {
+    id: 4,
+    title: "برنامه نویسی JavaScript",
+    category: "برنامه نویسی",
+    level: "متوسط",
+    duration: "45 ساعت",
+    students: 95,
+    price: "3,800,000",
+    description: "یادگیری زبان JavaScript و مفاهیم اصلی برنامه نویسی در وب.",
+    icon: "⚡",
+    color: "yellow",
+  },
+  {
+    id: 5,
+    title: "مبانی امنیت شبکه",
+    category: "امنیت",
+    level: "مقدماتی",
+    duration: "35 ساعت",
+    students: 70,
+    price: "3,200,000",
+    description:
+      "آشنایی با تهدیدات امنیتی، اصول محافظت از شبکه و روش های پیشگیری.",
+    icon: "🛡️",
+    color: "green",
+  },
+  {
+    id: 6,
+    title: "مبانی هوش مصنوعی",
+    category: "هوش مصنوعی",
+    level: "مقدماتی",
+    duration: "25 ساعت",
+    students: 110,
+    price: "2,900,000",
+    description: "آشنایی با مفاهیم هوش مصنوعی، یادگیری ماشین و کاربردهای آن.",
+    icon: "🤖",
+    color: "pink",
+  },
+];
+
+const categories = [
+  "همه دوره ها",
+  "شبکه و زیرساخت",
+  "برنامه نویسی",
+  "امنیت",
+  "هوش مصنوعی",
+];
+
+const levels = ["همه سطوح", "مقدماتی", "متوسط", "پیشرفته"];
+
+export default function CoursesPage() {
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("همه دوره ها");
+  const [level, setLevel] = useState("همه سطوح");
+
+  const filteredCourses = useMemo(() => {
+    return courses.filter((course) => {
+      const matchesSearch =
+        course.title.toLowerCase().includes(search.toLowerCase()) ||
+        course.description.toLowerCase().includes(search.toLowerCase());
+
+      const matchesCategory =
+        category === "همه دوره ها" || course.category === category;
+
+      const matchesLevel = level === "همه سطوح" || course.level === level;
+
+      return matchesSearch && matchesCategory && matchesLevel;
+    });
+  }, [search, category, level]);
+
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <span className={styles.eyebrow}>
+            <BookOpen size={16} />
+            مسیر یادگیری شما از اینجا شروع می شود
+          </span>
+
+          <h1>
+            دوره های آموزشی
+            <span> برای آینده ای حرفه ای</span>
+          </h1>
+
+          <p>
+            با شرکت در دوره های تخصصی، مهارت های مورد نیاز بازار کار را یاد
+            بگیرید و مسیر شغلی خود را بسازید.
+          </p>
+        </div>
+      </section>
+
+      <section className={styles.content}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <span className={styles.sectionLabel}>آموزش هدفمند</span>
+            <h2>همه دوره های آموزشی</h2>
+            <p>دوره مورد نظر خود را پیدا و مسیر یادگیری تان را انتخاب کنید.</p>
+          </div>
+
+          <span className={styles.resultCount}>
+            {filteredCourses.length} دوره
+          </span>
+        </div>
+
+        <div className={styles.filters}>
+          <div className={styles.searchBox}>
+            <Search size={20} />
+            <input
+              type="text"
+              placeholder="جستجوی نام دوره..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.filterItem}>
+            <SlidersHorizontal size={18} />
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              {categories.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.filterItem}>
+            <select value={level} onChange={(e) => setLevel(e.target.value)}>
+              {levels.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {filteredCourses.length > 0 ? (
+          <div className={styles.courseGrid}>
+            {filteredCourses.map((course) => (
+              <article className={styles.courseCard} key={course.id}>
+                <div
+                  className={`${styles.courseVisual} ${styles[course.color]}`}
+                >
+                  <span className={styles.courseIcon}>{course.icon}</span>
+                  <span className={styles.categoryBadge}>
+                    {course.category}
+                  </span>
+                </div>
+
+                <div className={styles.courseBody}>
+                  <span className={styles.level}>{course.level}</span>
+
+                  <h3>{course.title}</h3>
+                  <p>{course.description}</p>
+
+                  <div className={styles.courseMeta}>
+                    <span>
+                      <Clock3 size={16} />
+                      {course.duration}
+                    </span>
+                    <span>
+                      <Users size={16} />
+                      {course.students} دانشجو
+                    </span>
+                  </div>
+
+                  <div className={styles.courseFooter}>
+                    <div className={styles.price}>
+                      <strong>{course.price}</strong>
+                      <small>تومان</small>
+                    </div>
+
+                    <Link href={`/courses/${course.id}`}>
+                      مشاهده دوره
+                      <ArrowLeft size={16} />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className={styles.emptyState}>
+            <Search size={36} />
+            <h3>دوره ای پیدا نشد!</h3>
+            <p>عبارت جستجو یا فیلترهای انتخاب شده را تغییر دهید.</p>
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
