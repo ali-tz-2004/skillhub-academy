@@ -27,6 +27,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  
 
   strong {
     display: block;
@@ -765,6 +766,9 @@
 }
 
 .footerAbout {
+  .logo strong {
+    color: #fff;
+  }
   p {
     color: #a9bacd;
     font-size: 12px;
@@ -802,6 +806,10 @@
 }
 
 @media (max-width: 768px) {
+  .floatingCard,
+  .floatingTag {
+    display: none;
+  }
   .header {
     height: 70px;
   }
