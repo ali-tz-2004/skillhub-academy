@@ -19,6 +19,7 @@ import {
 import styles from "./page.module.scss";
 import CurrentYear from "./components/CurrentYear";
 import { Suspense } from "react";
+import MobileMenu from "./components/MobileMenu";
 
 const categories = [
   {
@@ -161,6 +162,7 @@ export default function Home() {
             مشاهده دوره ها
             <ArrowLeft size={16} />
           </Link>
+          <MobileMenu />
         </div>
       </header>
 
