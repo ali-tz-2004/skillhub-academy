@@ -11,15 +11,9 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import styles from "./page.module.scss";
-import { courses } from "../data/courses";
+import { categories as courseCategories, courses } from "../data/courses";
 
-const categories = [
-  "همه دوره ها",
-  "شبکه و زیرساخت",
-  "برنامه نویسی",
-  "امنیت",
-  "هوش مصنوعی",
-];
+const categories = ["همه دوره ها", ...courseCategories];
 
 const levels = ["همه سطوح", "مقدماتی", "متوسط", "پیشرفته"];
 

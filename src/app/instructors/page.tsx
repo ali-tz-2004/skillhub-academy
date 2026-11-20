@@ -10,27 +10,14 @@ import Image from "next/image";
 
 const instructors = [
   {
-    id: 1,
-    name: "علی رضایی",
-    role: "مدرس شبکه و زیرساخت",
-    experience: "۸ سال تجربه",
-    courses: 4,
-    description:
-      "متخصص راه اندازی و مدیریت شبکه های کامپیوتری با تجربه آموزش مفاهیم شبکه و تجهیزات سیسکو.",
-    skills: ["Network+", "CCNA", "Windows Server", "MikroTik"],
-    initials: "ع ر",
-    image: "/images/instructors/01.jpg",
-    color: "blue",
-  },
-  {
     id: 2,
     name: "محمد احمدی",
-    role: "مدرس برنامه نویسی و طراحی وب",
+    role: "مدرس امنیت شبکه",
     experience: "۶ سال تجربه",
-    courses: 6,
+    courses: 3,
     description:
-      "فعال در حوزه توسعه وب و طراحی نرم افزارهای تحت وب با تمرکز بر تکنولوژی های مدرن برنامه نویسی.",
-    skills: ["HTML & CSS", "JavaScript", "React", "Next.js"],
+      "فعال در حوزه امنیت شبکه و تست نفوذ با تمرکز بر آموزش عملی و سناریوهای واقعی سازمانی.",
+    skills: ["Network Security", "Firewall", "Kali Linux", "Wireshark"],
     initials: "م ا",
     image: "/images/instructors/02.webp",
     color: "purple",
@@ -38,12 +25,12 @@ const instructors = [
   {
     id: 3,
     name: "رضا کریمی",
-    role: "مدرس امنیت و هوش مصنوعی",
+    role: "مدرس سرور و رایانش ابری",
     experience: "۷ سال تجربه",
     courses: 3,
     description:
-      "فعال در حوزه امنیت اطلاعات و فناوری های هوش مصنوعی با تمرکز بر کاربردهای عملی و پروژه محور.",
-    skills: ["Cyber Security", "Python", "Machine Learning", "Linux"],
+      "متخصص مدیریت سرور و مجازی سازی با تجربه پیاده سازی زیرساخت در سازمان ها و آموزش پروژه محور.",
+    skills: ["Windows Server", "VMware", "Linux", "Docker"],
     initials: "ر ک",
     image: "/images/instructors/03.jpg",
     color: "green",

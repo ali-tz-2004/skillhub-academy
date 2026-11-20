@@ -3,17 +3,18 @@ import {
   ArrowLeft,
   ArrowUpLeft,
   BookOpen,
-  Code2,
-  Cpu,
-  GraduationCap,
+  Cloud,
   Network,
+  Server,
   ShieldCheck,
+  GraduationCap,
   Users,
   Zap,
   Clock3,
   Star,
   CheckCircle2,
   Play,
+  Code2,
 } from "lucide-react";
 
 import styles from "./page.module.scss";
@@ -24,27 +25,27 @@ import MobileMenu from "../components/MobileMenu";
 const categories = [
   {
     title: "شبکه و زیرساخت",
-    description: "از مفاهیم پایه شبکه تا مدیریت زیرساخت",
+    description: "از مفاهیم پایه شبکه تا مسیریابی و سوئیچینگ",
     icon: Network,
-    courses: "۱۲ دوره",
+    courses: "۳ دوره",
   },
   {
-    title: "برنامه نویسی",
-    description: "توسعه نرم افزار و طراحی وب",
-    icon: Code2,
-    courses: "۱۸ دوره",
-  },
-  {
-    title: "امنیت و هک",
-    description: "امنیت شبکه و زیرساخت های اطلاعاتی",
+    title: "امنیت شبکه",
+    description: "محافظت از شبکه و زیرساخت های اطلاعاتی",
     icon: ShieldCheck,
-    courses: "۸ دوره",
+    courses: "۱ دوره",
   },
   {
-    title: "هوش مصنوعی",
-    description: "یادگیری فناوری های هوشمند",
-    icon: Cpu,
-    courses: "۶ دوره",
+    title: "سرور و مجازی سازی",
+    description: "مدیریت سرور و پیاده سازی زیرساخت مجازی",
+    icon: Server,
+    courses: "۲ دوره",
+  },
+  {
+    title: "رایانش ابری",
+    description: "لینوکس، داکر و ورود به دنیای DevOps",
+    icon: Cloud,
+    courses: "۱ دوره",
   },
 ];
 
@@ -54,36 +55,36 @@ const courses = [
     category: "شبکه و زیرساخت",
     level: "مقدماتی تا متوسط",
     duration: "۶۰ ساعت",
-    students: "۲۴۰ هنرجو",
-    price: "۳,۸۰۰,۰۰۰",
+    students: "۸۵ هنرجو",
+    price: "۵,۰۰۰,۰۰۰",
     rating: "۴.۹",
-    image: "/images/ccna.jpg",
     color: "blue",
     slug: "ccna",
+    icon: Network,
   },
   {
-    title: "طراحی وب با HTML و CSS",
-    category: "برنامه نویسی",
-    level: "مقدماتی",
-    duration: "۴۰ ساعت",
-    students: "۱۸۵ هنرجو",
-    price: "۲,۴۰۰,۰۰۰",
+    title: "آموزش میکروتیک MTCNA",
+    category: "شبکه و زیرساخت",
+    level: "متوسط",
+    duration: "۳۵ ساعت",
+    students: "۹۵ هنرجو",
+    price: "۳,۲۰۰,۰۰۰",
     rating: "۴.۸",
-    image: "/images/web.jpg",
     color: "purple",
-    slug: "web-design",
+    slug: "mikrotik",
+    icon: Network,
   },
   {
     title: "مبانی امنیت شبکه",
-    category: "امنیت و هک",
-    level: "متوسط",
-    duration: "۴۵ ساعت",
-    students: "۱۲۵ هنرجو",
+    category: "امنیت شبکه",
+    level: "مقدماتی",
+    duration: "۳۵ ساعت",
+    students: "۷۰ هنرجو",
     price: "۳,۲۰۰,۰۰۰",
     rating: "۴.۹",
-    image: "/images/security.jpg",
     color: "green",
     slug: "network-security",
+    icon: ShieldCheck,
   },
 ];
 
@@ -328,11 +329,7 @@ export default function Home() {
                 >
                   <span>{course.category}</span>
                   <div className={styles.courseImageIcon}>
-                    {course.slug === "ccna" && <Network size={55} />}
-                    {course.slug === "web-design" && <Code2 size={55} />}
-                    {course.slug === "network-security" && (
-                      <ShieldCheck size={55} />
-                    )}
+                    <course.icon size={55} />
                   </div>
                   <span className={styles.courseRating}>
                     <Star size={14} fill="currentColor" /> {course.rating}
@@ -480,8 +477,8 @@ export default function Home() {
             <div>
               <h3>حوزه های آموزشی</h3>
               <a href="#categories">شبکه و زیرساخت</a>
-              <a href="#categories">برنامه نویسی</a>
-              <a href="#categories">امنیت و هوش مصنوعی</a>
+              <a href="#categories">امنیت شبکه</a>
+              <a href="#categories">سرور و رایانش ابری</a>
             </div>
 
             <div>

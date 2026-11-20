@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: "%s | SkillHub Academy",
   },
   description:
-    "آموزش تخصصی شبکه، برنامه نویسی و فناوری اطلاعات با تمرکز بر مهارت های عملی و ورود به بازار کار.",
+    "آموزش تخصصی فناوری شبکه، حقوق و مدیریت با تمرکز بر مهارت های عملی و ورود به بازار کار.",
   applicationName: "SkillHub Academy",
   robots: {
     index: false,
