@@ -9,9 +9,9 @@ const links = [
   { href: "/", label: "صفحه اصلی" },
   { href: "/courses", label: "دوره های آموزشی" },
   { href: "/instructors", label: "اساتید" },
-  { href: "/#categories", label: "دسته بندی ها" },
-  { href: "/#about", label: "درباره ما" },
-  { href: "/#contact", label: "تماس با ما" },
+  { href: "/network#categories", label: "دسته بندی ها" },
+  { href: "/network#about", label: "درباره ما" },
+  { href: "/network#contact", label: "تماس با ما" },
 ];
 
 export default function MobileMenu() {

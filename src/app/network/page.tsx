@@ -17,9 +17,9 @@ import {
 } from "lucide-react";
 
 import styles from "./page.module.scss";
-import CurrentYear from "./components/CurrentYear";
+import CurrentYear from "../components/CurrentYear";
 import { Suspense } from "react";
-import MobileMenu from "./components/MobileMenu";
+import MobileMenu from "../components/MobileMenu";
 
 const categories = [
   {
