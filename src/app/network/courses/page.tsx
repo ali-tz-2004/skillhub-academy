@@ -11,7 +11,7 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import styles from "./page.module.scss";
-import { categories as courseCategories, courses } from "../data/courses";
+import { categories as courseCategories, courses } from "../../data/courses";
 
 const categories = ["همه دوره ها", ...courseCategories];
 
@@ -143,7 +143,7 @@ export default function CoursesPage() {
                       <small>تومان</small>
                     </div>
 
-                    <Link href={`/courses/${course.id}`}>
+                    <Link href={`/network/courses/${course.slug}`}>
                       مشاهده دوره
                       <ArrowLeft size={16} />
                     </Link>

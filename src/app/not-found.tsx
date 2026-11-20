@@ -22,7 +22,7 @@ export default function NotFound() {
             بازگشت به صفحه اصلی
             <ArrowLeft size={18} />
           </Link>
-          <Link href="/courses" className={styles.secondary}>
+          <Link href="/network/courses" className={styles.secondary}>
             دوره های آموزشی
           </Link>
         </div>

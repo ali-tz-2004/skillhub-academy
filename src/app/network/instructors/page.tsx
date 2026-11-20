@@ -183,7 +183,7 @@ export default function InstructorsPage() {
           <p>دوره مناسب خود را انتخاب کنید و قدم اول را بردارید.</p>
         </div>
 
-        <a href="/courses">
+        <a href="/network/courses">
           مشاهده دوره ها
           <ArrowLeft size={18} />
         </a>

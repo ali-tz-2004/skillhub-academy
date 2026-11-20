@@ -152,14 +152,14 @@ export default function Home() {
 
           <nav className={styles.nav}>
             <Link href="/">صفحه اصلی</Link>
-            <Link href="/courses">دوره های آموزشی</Link>
-            <a href="#categories">دسته بندی ها</a>
-            <Link href="/instructors">اساتید</Link>
-            <a href="#about">درباره ما</a>
-            <a href="#contact">تماس با ما</a>
+            <Link href="/network/courses">دوره های آموزشی</Link>
+            <a href="/network#categories">دسته بندی ها</a>
+            <Link href="/network/instructors">اساتید</Link>
+            <a href="/network#about">درباره ما</a>
+            <a href="/network#contact">تماس با ما</a>
           </nav>
 
-          <Link href="/courses" className={styles.headerButton}>
+          <Link href="/network/courses" className={styles.headerButton}>
             مشاهده دوره ها
             <ArrowLeft size={16} />
           </Link>
@@ -189,7 +189,7 @@ export default function Home() {
             </p>
 
             <div className={styles.heroActions}>
-              <Link href="/courses" className={styles.primaryButton}>
+              <Link href="/network/courses" className={styles.primaryButton}>
                 مشاهده دوره های آموزشی
                 <ArrowLeft size={18} />
               </Link>
@@ -273,7 +273,7 @@ export default function Home() {
               <h2>مسیر یادگیری خودت رو انتخاب کن</h2>
               <p>در حوزه مورد علاقه ات قدم بردار و مهارت های جدید بساز.</p>
             </div>
-            <Link href="/courses" className={styles.textLink}>
+            <Link href="/network/courses" className={styles.textLink}>
               همه دوره ها <ArrowLeft size={17} />
             </Link>
           </div>
@@ -284,7 +284,7 @@ export default function Home() {
 
               return (
                 <Link
-                  href="/courses"
+                  href="/network/courses"
                   className={styles.categoryCard}
                   key={category.title}
                 >
@@ -316,7 +316,7 @@ export default function Home() {
                 با دوره های تخصصی، مهارت های مورد نیاز بازار کار رو یاد بگیر.
               </p>
             </div>
-            <Link href="/courses" className={styles.textLink}>
+            <Link href="/network/courses" className={styles.textLink}>
               مشاهده همه <ArrowLeft size={17} />
             </Link>
           </div>
@@ -358,7 +358,7 @@ export default function Home() {
                       </strong>
                     </div>
                     <Link
-                      href={`/courses/${course.slug}`}
+                      href={`network/courses/${course.slug}`}
                       className={styles.courseButton}
                       aria-label={`مشاهده دوره ${course.title}`}
                     >
@@ -386,7 +386,7 @@ export default function Home() {
                 هدف ما ارائه آموزش هایی است که فراتر از مطالب تئوری باشند.
                 یادگیری باید به تجربه، تخصص و توانایی حل مسئله تبدیل شود.
               </p>
-              <Link href="/courses" className={styles.primaryButton}>
+              <Link href="/network/courses" className={styles.primaryButton}>
                 شروع یادگیری <ArrowLeft size={18} />
               </Link>
             </div>
@@ -440,7 +440,7 @@ export default function Home() {
               <h2>اولین قدم رو برای آینده ات بردار.</h2>
               <p>دوره مناسب خودت رو پیدا کن و مسیر یادگیری رو شروع کن.</p>
             </div>
-            <Link href="/courses" className={styles.ctaButton}>
+            <Link href="/network/courses" className={styles.ctaButton}>
               مشاهده دوره ها <ArrowLeft size={18} />
             </Link>
           </div>
@@ -470,8 +470,8 @@ export default function Home() {
             <div>
               <h3>دسترسی سریع</h3>
               <Link href="/">صفحه اصلی</Link>
-              <Link href="/courses">دوره های آموزشی</Link>
-              <a href="#about">درباره ما</a>
+              <Link href="/network/courses">دوره های آموزشی</Link>
+              <a href="/network#about">درباره ما</a>
             </div>
 
             <div>

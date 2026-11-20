@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Clock3, Users } from "lucide-react";
-import { courses, getCourse } from "../../data/courses";
+import { courses, getCourse } from "../../../data/courses";
 import styles from "./page.module.scss";
 
 export function generateStaticParams() {
@@ -22,7 +22,7 @@ export default async function CourseDetailPage({
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <Link href="/courses" className={styles.back}>
+          <Link href="/network/courses" className={styles.back}>
             <ArrowRight size={16} />
             بازگشت به دوره ها
           </Link>
