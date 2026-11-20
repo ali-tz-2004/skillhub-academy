@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import styles from "./page.module.scss";
 import Image from "next/image";
+import BackLink from "@/app/components/BackLink";
 
 const instructors = [
   {
@@ -60,6 +61,8 @@ export default function InstructorsPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
+          <BackLink href="/network">بازگشت</BackLink>
+
           <span className={styles.eyebrow}>
             <GraduationCap size={18} />
             تیم آموزشی ما
