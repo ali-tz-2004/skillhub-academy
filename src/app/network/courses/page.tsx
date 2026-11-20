@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import styles from "./page.module.scss";
 import { categories as courseCategories, courses } from "../../data/courses";
+import BackLink from "@/app/components/BackLink";
 
 const categories = ["همه دوره ها", ...courseCategories];
 
@@ -41,6 +42,7 @@ export default function CoursesPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
+          <BackLink href="/network">بازگشت</BackLink>
           <span className={styles.eyebrow}>
             <BookOpen size={16} />
             مسیر یادگیری شما از اینجا شروع می شود

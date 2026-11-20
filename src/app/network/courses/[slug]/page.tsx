@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Clock3, Users } from "lucide-react";
 import { courses, getCourse } from "../../../data/courses";
 import styles from "./page.module.scss";
+import BackLink from "@/app/components/BackLink";
 
 export function generateStaticParams() {
   return courses.map((course) => ({ slug: course.slug }));
@@ -22,11 +23,7 @@ export default async function CourseDetailPage({
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <Link href="/network/courses" className={styles.back}>
-            <ArrowRight size={16} />
-            بازگشت به دوره ها
-          </Link>
-
+          <BackLink href="/network/courses">بازگشت</BackLink>
           <span className={styles.badge}>{course.category}</span>
           <h1>{course.title}</h1>
           <p>{course.description}</p>

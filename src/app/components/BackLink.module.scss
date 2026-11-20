@@ -1,0 +1,14 @@
+.back {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-bottom: 28px;
+  color: #bfdbfe;
+  font-size: 13px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #fff;
+  }
+}
