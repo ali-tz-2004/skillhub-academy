@@ -50,24 +50,26 @@ export default function Home() {
           حوزه آموزشی خودت رو
           <span> انتخاب کن</span>
         </h1>
-        <p>برای شروع، یکی از حوزه های زیر رو انتخاب کن.</p>
+        <p className={styles.intro}>
+          مسیر یادگیری موردنظرت رو انتخاب کن و قدم اول رو بردار.
+        </p>
 
         <div className={styles.grid}>
           {fields.map((field) => {
             const Icon = field.icon;
             const content = (
               <>
-                <span className={styles.icon}>
+                <span className={styles.icon} aria-hidden="true">
                   <Icon size={34} />
                 </span>
                 <h2>{field.title}</h2>
                 <p>{field.description}</p>
                 {field.href ? (
                   <span className={styles.action}>
-                    ورود به بخش <ArrowLeft size={17} />
+                    مشاهدهٔ دوره‌ها <ArrowLeft size={17} aria-hidden="true" />
                   </span>
                 ) : (
-                  <span className={styles.soon}>به زودی</span>
+                  <span className={styles.soon}>به‌زودی</span>
                 )}
               </>
             );
@@ -77,6 +79,7 @@ export default function Home() {
                 href={field.href}
                 className={`${styles.card} ${styles[field.color]}`}
                 key={field.title}
+                aria-label={`ورود به حوزهٔ ${field.title}`}
               >
                 {content}
               </Link>
@@ -85,6 +88,7 @@ export default function Home() {
                 className={`${styles.card} ${styles[field.color]} ${styles.disabled}`}
                 aria-disabled="true"
                 key={field.title}
+                aria-label={`حوزهٔ ${field.title}، به‌زودی`}
               >
                 {content}
               </div>
