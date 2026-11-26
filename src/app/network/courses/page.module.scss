@@ -26,7 +26,7 @@
 
     span {
       display: block;
-      color: #60a5fa;
+      color: var(--domain-primary-pale);
     }
   }
 
@@ -78,7 +78,7 @@
 }
 
 .sectionLabel {
-  color: #2563eb;
+  color: var(--domain-primary);
   font-size: 14px;
   font-weight: 700;
 }
@@ -87,8 +87,8 @@
   flex-shrink: 0;
   padding: 9px 16px;
   border-radius: 10px;
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--domain-primary-soft);
+  color: var(--domain-primary-hover);
   font-size: 14px;
   font-weight: 700;
 }
@@ -113,8 +113,8 @@
   color: #64748b;
 
   &:focus-within {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--domain-primary);
+    box-shadow: 0 0 0 3px var(--domain-primary-soft);
   }
 
   input,
@@ -258,13 +258,13 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    color: #2563eb;
+    color: var(--domain-primary);
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
 
     &:hover {
-      color: #1d4ed8;
+      color: var(--domain-primary-hover);
     }
   }
 }

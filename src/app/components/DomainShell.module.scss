@@ -50,7 +50,7 @@
   height: 45px;
   place-items: center;
   border-radius: 13px;
-  background: #142d4e;
+  background: var(--domain-primary);
   color: white;
 }
 
@@ -65,7 +65,7 @@
     transition: color 0.2s ease;
 
     &:hover {
-      color: #2563eb;
+      color: var(--domain-primary);
     }
   }
 }
@@ -77,14 +77,14 @@
   gap: 10px;
   padding: 12px 17px;
   border-radius: 9px;
-  background: #142d4e;
+  background: var(--domain-primary);
   color: #fff;
   font-size: 13px;
   font-weight: 700;
   transition: background 0.2s ease;
 
   &:hover {
-    background: #2563eb;
+    background: var(--domain-primary-hover);
   }
 }
 

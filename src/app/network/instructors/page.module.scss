@@ -26,7 +26,7 @@
 
     span {
       display: block;
-      color: #60a5fa;
+      color: var(--domain-primary-pale);
     }
   }
 
@@ -78,7 +78,7 @@
 }
 
 .sectionLabel {
-  color: #2563eb;
+  color: var(--domain-primary);
   font-size: 14px;
   font-weight: 700;
 }
@@ -87,8 +87,8 @@
   flex-shrink: 0;
   padding: 9px 16px;
   border-radius: 10px;
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--domain-primary-soft);
+  color: var(--domain-primary-hover);
   font-size: 14px;
   font-weight: 700;
 }
@@ -139,7 +139,7 @@
   background: #dbeafe;
 
   .avatar {
-    color: #1d4ed8;
+    color: var(--domain-primary-hover);
   }
 }
 
@@ -193,7 +193,7 @@
 }
 
 .role {
-  color: #2563eb;
+  color: var(--domain-primary);
   font-size: 13px;
   font-weight: 700;
 }
@@ -239,8 +239,8 @@
     height: 36px;
     border: none;
     border-radius: 9px;
-    background: #eff6ff;
-    color: #2563eb;
+    background: var(--domain-primary-soft);
+    color: var(--domain-primary-hover);
 
     &:disabled {
       cursor: not-allowed;
@@ -308,8 +308,8 @@
   height: 58px;
   margin: 0 auto;
   border-radius: 14px;
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--domain-primary-soft);
+  color: var(--domain-primary-hover);
 }
 
 .cta {
@@ -321,7 +321,7 @@
   margin: 70px auto;
   padding: 38px;
   border-radius: 18px;
-  background: linear-gradient(120deg, #1e3a8a, #1d4ed8);
+  background: linear-gradient(120deg, var(--domain-primary-hover), var(--domain-primary));
   color: #fff;
 
   h2 {
@@ -331,7 +331,7 @@
 
   p {
     margin: 0;
-    color: #dbeafe;
+    color: var(--domain-primary-pale);
     font-size: 14px;
   }
 
@@ -343,14 +343,14 @@
     padding: 13px 20px;
     border-radius: 10px;
     background: #fff;
-    color: #1d4ed8;
+    color: var(--domain-primary-hover);
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
     transition: background 0.2s;
 
     &:hover {
-      background: #eff6ff;
+      background: var(--domain-primary-soft);
     }
   }
 }

@@ -40,7 +40,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #3b82f6;
+  color: var(--domain-primary);
   font-size: 13px;
   font-weight: 700;
 }
@@ -69,11 +69,11 @@
 }
 
 .primaryButton {
-  background: #fff;
-  color: #142d4e;
+  background: var(--domain-primary);
+  color: #fff;
 
   &:hover {
-    background: #eff6ff;
+    background: var(--domain-primary-hover);
   }
 }
 
@@ -90,7 +90,7 @@
   color: #bfdbfe;
 
   span {
-    color: #dbeafe;
+    color: var(--domain-primary-pale);
     font-family: var(--font-mono, monospace);
     font-size: 11px;
     letter-spacing: 2px;
@@ -142,7 +142,7 @@
 
   svg:first-child {
     flex-shrink: 0;
-    color: #2563eb;
+    color: var(--domain-primary);
   }
 
   svg:last-child {
@@ -153,7 +153,7 @@
 
   &:hover {
     transform: translateY(-3px);
-    border-color: #93c5fd;
+    border-color: var(--domain-primary);
   }
 }
 
@@ -211,8 +211,8 @@
 .courseCategory {
   padding: 5px 10px;
   border-radius: 999px;
-  background: #eff6ff;
-  color: #1d4ed8;
+  background: var(--domain-primary-soft);
+  color: var(--domain-primary-hover);
   font-size: 11px;
   font-weight: 700;
 }
@@ -224,7 +224,7 @@
   gap: 7px;
   margin-top: auto;
   padding-top: 20px;
-  color: #1d4ed8;
+  color: var(--domain-primary-hover);
   font-size: 12px;
   font-weight: 700;
 }
@@ -263,8 +263,8 @@
   height: 46px;
   place-items: center;
   border-radius: 13px;
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: var(--domain-primary-pale);
+  color: var(--domain-primary-hover);
 }
 
 .consultation {
@@ -303,8 +303,12 @@
 .consultButton {
   flex-shrink: 0;
   margin: 0 0 0 auto;
-  background: #fff;
-  color: #142d4e;
+  background: var(--domain-primary);
+  color: #fff;
+
+  &:hover {
+    background: var(--domain-primary-hover);
+  }
 }
 
 @media (max-width: 900px) {
