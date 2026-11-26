@@ -1,0 +1,467 @@
+.page {
+  min-height: 100vh;
+  background: var(--domain-surface);
+}
+
+.hero {
+  padding: 52px 24px 58px;
+  background: linear-gradient(
+    125deg,
+    var(--domain-background-deep),
+    var(--domain-background-mid)
+  );
+  color: #fff;
+}
+
+.heroInner {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  h1 {
+    margin: 14px 0 8px;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 800;
+  }
+
+  > p {
+    margin: 0;
+    color: var(--domain-muted-on-dark);
+    font-size: 14px;
+    line-height: 2;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--domain-primary-pale);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.content {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+
+.sampleNotice {
+  margin: 0 0 20px;
+  padding: 12px 15px;
+  border: 1px solid var(--domain-border);
+  border-radius: 10px;
+  background: var(--domain-surface-muted);
+  color: var(--domain-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.dateFilter {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.9fr) minmax(360px, 1.3fr) auto auto;
+  align-items: center;
+  gap: 12px 18px;
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid var(--domain-border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.dateFilterHeading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--domain-primary);
+
+  h2 {
+    margin: 0;
+    color: var(--domain-ink);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    padding-top: 4px;
+    color: var(--domain-muted);
+    font-size: 10px;
+    line-height: 1.8;
+  }
+}
+
+.dateRangeFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dateRangeFields :global(.rmdp-container) {
+  width: 100%;
+}
+
+.dateRangeTrigger {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 13px;
+  border: 1px solid var(--domain-border);
+  border-radius: 9px;
+  background: var(--domain-surface);
+  color: var(--domain-ink);
+  text-align: right;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--domain-primary);
+    box-shadow: 0 0 0 3px var(--domain-primary-soft);
+    outline: 0;
+  }
+}
+
+.dateRangeValue {
+  display: grid;
+  gap: 3px;
+
+  small {
+    color: var(--domain-muted);
+    font-size: 10px;
+  }
+
+  strong {
+    color: var(--domain-ink);
+    font-size: 12px;
+  }
+}
+
+.clearDateRange {
+  border: 0;
+  background: none;
+  color: var(--domain-muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--domain-primary);
+  }
+}
+
+.resultCount {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--domain-primary-soft);
+  color: var(--domain-primary);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dateFilter :global(.network-calendar-picker) {
+  justify-self: stretch;
+}
+
+.dateFilter :global(.rmdp-day.rmdp-selected span),
+.dateFilter :global(.rmdp-day.rmdp-range span),
+.dateFilter :global(.rmdp-day.rmdp-range-hover span) {
+  background-color: var(--domain-primary) !important;
+  color: #fff !important;
+}
+
+.dateFilter :global(.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover) {
+  background-color: var(--domain-primary-soft);
+  color: var(--domain-primary);
+}
+
+.emptyState {
+  margin: 24px 0;
+  padding: 28px 20px;
+  border: 1px dashed var(--domain-border);
+  border-radius: 14px;
+  color: var(--domain-muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.categoryNav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 30px;
+  padding: 10px 0;
+  background: var(--domain-surface);
+  scrollbar-width: thin;
+
+  a {
+    display: inline-flex;
+    min-height: 40px;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 0 15px;
+    border: 1px solid var(--domain-border);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--domain-ink);
+    font-size: 12px;
+    font-weight: 700;
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--domain-primary);
+      color: var(--domain-primary);
+    }
+  }
+}
+
+.categorySection {
+  scroll-margin-top: 72px;
+  margin-top: 34px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  margin-bottom: 17px;
+
+  span {
+    color: var(--domain-primary);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--domain-ink);
+    font-size: 21px;
+  }
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.courseCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--domain-border);
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 24px #00000008;
+}
+
+.courseHeading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  h3 {
+    margin: 5px 0 0;
+    color: var(--domain-ink);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
+
+.courseIcon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 15px;
+  background: var(--domain-primary-soft);
+  font-size: 26px;
+}
+
+.level {
+  color: var(--domain-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.courseMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 17px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--domain-border);
+  color: var(--domain-muted);
+  font-size: 12px;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  svg {
+    color: var(--domain-primary);
+  }
+}
+
+.classList {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.classSchedule {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px 12px;
+  padding: 13px;
+  border-radius: 11px;
+  background: var(--domain-surface);
+
+  strong {
+    grid-column: 1 / -1;
+    color: var(--domain-ink);
+    font-size: 12px;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--domain-muted);
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: var(--domain-primary);
+  }
+}
+
+.courseFooter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  margin-top: 15px;
+
+  > div {
+    min-width: 0;
+  }
+
+  span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--domain-muted);
+    font-size: 11px;
+  }
+
+  p,
+  strong {
+    display: block;
+    margin: 0;
+    color: var(--domain-ink);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+.detailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  margin-top: 17px;
+  color: var(--domain-primary);
+  font-size: 12px;
+  font-weight: 700;
+
+  &:hover {
+    color: var(--domain-primary-hover);
+  }
+}
+
+@media (max-width: 700px) {
+  .content {
+    padding: 20px 16px 55px;
+  }
+
+  .courseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dateFilter {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .dateFilterHeading {
+    grid-column: 1 / -1;
+  }
+
+  .dateRangeTrigger {
+    grid-column: auto;
+  }
+
+  .dateRangeFields {
+    grid-column: 1 / -1;
+  }
+
+  .clearDateRange {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .resultCount {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding: 38px 18px 42px;
+  }
+
+  .classSchedule {
+    grid-template-columns: 1fr;
+  }
+
+  .classSchedule strong {
+    grid-column: auto;
+  }
+
+  .courseFooter {
+    grid-template-columns: 1fr;
+  }
+
+  .dateFilter {
+    grid-template-columns: 1fr;
+  }
+
+  .resultCount {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+}

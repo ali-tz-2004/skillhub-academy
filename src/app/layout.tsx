@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import "react-multi-date-picker/styles/layouts/prime.css";
 
 export const metadata: Metadata = {
   title: {
