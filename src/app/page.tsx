@@ -53,6 +53,11 @@ export default function Home() {
         <p className={styles.intro}>
           مسیر یادگیری موردنظرت رو انتخاب کن و قدم اول رو بردار.
         </p>
+        <p className={styles.accountLinks}>
+          <span>هنرجوی SkillHub هستید؟</span>
+          <Link href="/login">ورود</Link>
+          <Link href="/register">ثبت‌نام</Link>
+        </p>
 
         <div className={styles.grid}>
           {fields.map((field) => {
