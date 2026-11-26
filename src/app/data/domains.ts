@@ -57,6 +57,7 @@ const networkLinks = [
   { href: "/", label: "انتخاب حوزه" },
   { href: "/network/courses", label: "همهٔ دوره‌ها" },
   { href: "/network/calendar", label: "تقویم دوره‌ها" },
+  { href: "/network/knowledge", label: "پایگاه دانش" },
   { href: "#categories", label: "دسته‌بندی‌ها" },
   { href: "/network/instructors", label: "مدرسین" },
   { href: "#services", label: "خدمات آموزشی" },
