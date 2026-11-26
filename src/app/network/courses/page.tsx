@@ -9,6 +9,9 @@ import {
   ArrowLeft,
   BookOpen,
   SlidersHorizontal,
+  Star,
+  MapPin,
+  Monitor,
 } from "lucide-react";
 import styles from "./page.module.scss";
 import { categories as courseCategories, courses } from "../../data/courses";
@@ -17,6 +20,10 @@ import BackLink from "@/app/components/BackLink";
 const categories = ["همه دوره ها", ...courseCategories];
 
 const levels = ["همه سطوح", "مقدماتی", "متوسط", "پیشرفته"];
+const ratingFormatter = new Intl.NumberFormat("fa-IR", {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -27,7 +34,8 @@ export default function CoursesPage() {
     return courses.filter((course) => {
       const matchesSearch =
         course.title.toLowerCase().includes(search.toLowerCase()) ||
-        course.description.toLowerCase().includes(search.toLowerCase());
+        course.description.toLowerCase().includes(search.toLowerCase()) ||
+        course.category.toLowerCase().includes(search.toLowerCase());
 
       const matchesCategory =
         category === "همه دوره ها" || course.category === category;
@@ -78,6 +86,7 @@ export default function CoursesPage() {
             <Search size={20} />
             <input
               type="text"
+              aria-label="جست‌وجو در نام، توضیحات یا دسته‌بندی دوره‌ها"
               placeholder="جستجوی نام دوره..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -87,6 +96,7 @@ export default function CoursesPage() {
           <div className={styles.filterItem}>
             <SlidersHorizontal size={18} />
             <select
+              aria-label="فیلتر دوره‌ها بر اساس دسته‌بندی"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
@@ -99,7 +109,11 @@ export default function CoursesPage() {
           </div>
 
           <div className={styles.filterItem}>
-            <select value={level} onChange={(e) => setLevel(e.target.value)}>
+            <select
+              aria-label="فیلتر دوره‌ها بر اساس سطح"
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+            >
               {levels.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -108,6 +122,10 @@ export default function CoursesPage() {
             </select>
           </div>
         </div>
+
+        <p className={styles.sampleNotice}>
+          امتیازها و شیوهٔ برگزاری در این نسخه نمونه هستند و بعداً با اطلاعات نهایی جایگزین می‌شوند.
+        </p>
 
         {filteredCourses.length > 0 ? (
           <div className={styles.courseGrid}>
@@ -133,9 +151,24 @@ export default function CoursesPage() {
                       <Clock3 size={16} />
                       {course.duration}
                     </span>
+                    <span
+                      className={styles.rating}
+                      aria-label={`امتیاز ${ratingFormatter.format(course.rating)} از ۵`}
+                    >
+                      <Star size={16} fill="currentColor" aria-hidden="true" />
+                      {ratingFormatter.format(course.rating)}
+                    </span>
                     <span>
                       <Users size={16} />
                       {course.students} دانشجو
+                    </span>
+                    <span>
+                      {course.deliveryMode.includes("حضوری") ? (
+                        <MapPin size={16} aria-hidden="true" />
+                      ) : (
+                        <Monitor size={16} aria-hidden="true" />
+                      )}
+                      {course.deliveryMode}
                     </span>
                   </div>
 

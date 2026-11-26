@@ -5,6 +5,8 @@ export type Course = {
   category: string;
   level: string;
   duration: string;
+  rating: number;
+  deliveryMode: "حضوری" | "آنلاین" | "حضوری و آنلاین";
   students: number;
   price: string;
   description: string;
@@ -28,6 +30,8 @@ export const courses: Course[] = [
     category: "شبکه و زیرساخت",
     level: "مقدماتی",
     duration: "40 ساعت",
+    rating: 4.7,
+    deliveryMode: "حضوری و آنلاین",
     students: 120,
     price: "3,500,000",
     description:
@@ -48,6 +52,8 @@ export const courses: Course[] = [
     category: "شبکه و زیرساخت",
     level: "متوسط",
     duration: "60 ساعت",
+    rating: 4.9,
+    deliveryMode: "حضوری و آنلاین",
     students: 85,
     price: "5,000,000",
     description:
@@ -68,6 +74,8 @@ export const courses: Course[] = [
     category: "شبکه و زیرساخت",
     level: "متوسط",
     duration: "35 ساعت",
+    rating: 4.8,
+    deliveryMode: "آنلاین",
     students: 95,
     price: "3,200,000",
     description:
@@ -88,6 +96,8 @@ export const courses: Course[] = [
     category: "امنیت شبکه",
     level: "مقدماتی",
     duration: "35 ساعت",
+    rating: 4.9,
+    deliveryMode: "آنلاین",
     students: 70,
     price: "3,200,000",
     description:
@@ -108,6 +118,8 @@ export const courses: Course[] = [
     category: "سرور و مجازی سازی",
     level: "متوسط",
     duration: "50 ساعت",
+    rating: 4.7,
+    deliveryMode: "حضوری",
     students: 80,
     price: "4,200,000",
     description:
@@ -128,6 +140,8 @@ export const courses: Course[] = [
     category: "سرور و مجازی سازی",
     level: "پیشرفته",
     duration: "40 ساعت",
+    rating: 4.8,
+    deliveryMode: "آنلاین",
     students: 55,
     price: "4,800,000",
     description:
@@ -148,6 +162,8 @@ export const courses: Course[] = [
     category: "رایانش ابری",
     level: "متوسط",
     duration: "45 ساعت",
+    rating: 4.6,
+    deliveryMode: "آنلاین",
     students: 65,
     price: "3,900,000",
     description:
