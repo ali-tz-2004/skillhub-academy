@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import DatePicker from "react-multi-date-picker";
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 import {
   ArrowLeft,
   CalendarDays,
@@ -29,16 +33,32 @@ export default function CalendarCourseList({
 }: {
   groups: CourseGroup[];
 }) {
-  const [selectedDate, setSelectedDate] = useState("");
-  const dates = Array.from(
-    new Set(
-      groups.flatMap((group) =>
-        group.courses.flatMap((course) =>
-          course.activeClasses.map((activeClass) => activeClass.startDate),
-        ),
-      ),
-    ),
-  ).sort();
+  const [selectedRange, setSelectedRange] = useState<DateObject[]>([]);
+  const rangeComplete = selectedRange.length === 2;
+  const rangeStart = rangeComplete
+    ? Math.min(selectedRange[0].toJulianDay(), selectedRange[1].toJulianDay())
+    : null;
+  const rangeEnd = rangeComplete
+    ? Math.max(selectedRange[0].toJulianDay(), selectedRange[1].toJulianDay())
+    : null;
+
+  function toPersianDate(date: string) {
+    const latinDigits = date.replace(/[۰-۹]/g, (digit) =>
+      String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit)),
+    );
+
+    return new DateObject({
+      date: latinDigits,
+      calendar: persian,
+      locale: persian_fa,
+    });
+  }
+
+  function formatPersianDate(date?: DateObject) {
+    return date?.format("YYYY/MM/DD").replace(/[0-9]/g, (digit) =>
+      persian_fa.digits[Number(digit)],
+    );
+  }
 
   const visibleGroups = groups
     .map((group) => ({
@@ -46,9 +66,12 @@ export default function CalendarCourseList({
       courses: group.courses
         .map((course) => ({
           ...course,
-          activeClasses: selectedDate
+          activeClasses: rangeComplete
             ? course.activeClasses.filter(
-                (activeClass) => activeClass.startDate === selectedDate,
+                (activeClass) => {
+                  const classDate = toPersianDate(activeClass.startDate).toJulianDay();
+                  return classDate >= rangeStart! && classDate <= rangeEnd!;
+                },
               )
             : course.activeClasses,
         }))
@@ -64,27 +87,65 @@ export default function CalendarCourseList({
   return (
     <>
       <div className={styles.dateFilter}>
-        <label htmlFor="calendar-date">مشاهدهٔ دوره‌ها در تاریخ شروع</label>
-        <div className={styles.dateFilterControl}>
-          <CalendarDays size={18} aria-hidden="true" />
-          <select
-            id="calendar-date"
-            value={selectedDate}
-            onChange={(event) => setSelectedDate(event.target.value)}
-          >
-            <option value="">همهٔ تاریخ‌ها</option>
-            {dates.map((date) => (
-              <option key={date} value={date}>
-                {date}
-              </option>
-            ))}
-          </select>
+        <div className={styles.dateFilterHeading}>
+          <CalendarDays size={19} aria-hidden="true" />
+          <div>
+            <h2>فیلتر بر اساس تاریخ</h2>
+            <p>بازهٔ موردنظر را با تقویم شمسی انتخاب کنید.</p>
+          </div>
         </div>
-        <p>با انتخاب تاریخ، دوره‌هایی را می‌بینید که کلاسشان همان روز شروع می‌شود.</p>
+        <DatePicker
+          range
+          rangeHover
+          calendar={persian}
+          locale={persian_fa}
+          digits={persian_fa.digits}
+          format="YYYY/MM/DD"
+          value={selectedRange}
+          onChange={(dates) => setSelectedRange(dates)}
+          calendarPosition="bottom-right"
+          className="network-calendar-picker"
+          zIndex={30}
+          render={(_value, openCalendar) => (
+            <button
+              type="button"
+              className={styles.dateRangeTrigger}
+              onClick={openCalendar}
+              aria-label="انتخاب بازهٔ تاریخ"
+            >
+              <span className={styles.dateRangeValue}>
+                <small>از تاریخ</small>
+                <strong>
+                  {formatPersianDate(selectedRange[0]) || "انتخاب کنید"}
+                </strong>
+              </span>
+              <span className={styles.dateRangeDivider} aria-hidden="true">
+                تا
+              </span>
+              <span className={styles.dateRangeValue}>
+                <small>تا تاریخ</small>
+                <strong>
+                  {formatPersianDate(selectedRange[1]) || "انتخاب کنید"}
+                </strong>
+              </span>
+            </button>
+          )}
+        />
+        {selectedRange.length > 0 && (
+          <button
+            type="button"
+            className={styles.clearDateRange}
+            onClick={() => setSelectedRange([])}
+          >
+            پاک کردن تاریخ
+          </button>
+        )}
         <span className={styles.resultCount} aria-live="polite">
-          {selectedDate
-            ? `${visibleCourseCount} دوره در ${selectedDate}`
-            : `${visibleCourseCount} دوره در همهٔ تاریخ‌ها`}
+          {rangeComplete
+            ? `${visibleCourseCount} دوره در بازهٔ انتخابی`
+            : selectedRange.length === 1
+              ? "تاریخ پایان را انتخاب کنید"
+              : `${visibleCourseCount} دوره در همهٔ تاریخ‌ها`}
         </span>
       </div>
 

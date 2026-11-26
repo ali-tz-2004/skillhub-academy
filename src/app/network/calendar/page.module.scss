@@ -60,59 +60,97 @@
 
 .dateFilter {
   display: grid;
-  grid-template-columns: minmax(190px, 0.7fr) minmax(220px, 1fr) auto;
+  grid-template-columns: minmax(170px, 1fr) minmax(300px, auto) auto;
   align-items: center;
-  gap: 8px 16px;
+  gap: 12px 18px;
   margin-bottom: 18px;
   padding: 18px;
   border: 1px solid var(--domain-border);
   border-radius: 14px;
   background: #fff;
+}
 
-  > label {
+.dateFilterHeading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--domain-primary);
+
+  h2 {
+    margin: 0;
     color: var(--domain-ink);
     font-size: 13px;
     font-weight: 700;
   }
 
-  > p {
-    grid-column: 1 / 3;
+  p {
     margin: 0;
+    padding-top: 4px;
     color: var(--domain-muted);
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.8;
   }
 }
 
-.dateFilterControl {
+.dateRangeTrigger {
   display: flex;
   min-height: 44px;
   align-items: center;
-  gap: 9px;
-  padding: 0 12px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 13px;
   border: 1px solid var(--domain-border);
   border-radius: 9px;
-  color: var(--domain-primary);
+  background: var(--domain-surface);
+  color: var(--domain-ink);
+  text-align: right;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
-  svg {
-    flex-shrink: 0;
+  &:hover,
+  &:focus-visible {
+    border-color: var(--domain-primary);
+    box-shadow: 0 0 0 3px var(--domain-primary-soft);
+    outline: 0;
+  }
+}
+
+.dateRangeValue {
+  display: grid;
+  gap: 3px;
+
+  small {
+    color: var(--domain-muted);
+    font-size: 10px;
   }
 
-  select {
-    width: 100%;
-    min-width: 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
+  strong {
     color: var(--domain-ink);
-    font: inherit;
     font-size: 12px;
   }
 }
 
+.dateRangeDivider {
+  color: var(--domain-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.clearDateRange {
+  border: 0;
+  background: none;
+  color: var(--domain-muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--domain-primary);
+  }
+}
+
 .resultCount {
-  grid-column: 3;
-  grid-row: 1 / 3;
   padding: 8px 12px;
   border-radius: 999px;
   background: var(--domain-primary-soft);
@@ -120,6 +158,22 @@
   font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.dateFilter :global(.network-calendar-picker) {
+  justify-self: stretch;
+}
+
+.dateFilter :global(.rmdp-day.rmdp-selected span),
+.dateFilter :global(.rmdp-day.rmdp-range span),
+.dateFilter :global(.rmdp-day.rmdp-range-hover span) {
+  background-color: var(--domain-primary) !important;
+  color: #fff !important;
+}
+
+.dateFilter :global(.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover) {
+  background-color: var(--domain-primary-soft);
+  color: var(--domain-primary);
 }
 
 .emptyState {
@@ -352,19 +406,26 @@
 
   .dateFilter {
     grid-template-columns: 1fr auto;
+    align-items: start;
+  }
 
-    > label {
-      grid-column: 1 / -1;
-    }
+  .dateFilterHeading {
+    grid-column: 1 / -1;
+  }
 
-    > p {
-      grid-column: 1 / -1;
-    }
+  .dateRangeTrigger {
+    grid-column: 1 / -1;
+  }
+
+  .clearDateRange {
+    grid-column: 1;
+    justify-self: start;
   }
 
   .resultCount {
-    grid-column: auto;
-    grid-row: auto;
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
   }
 }
 
@@ -390,6 +451,8 @@
   }
 
   .resultCount {
+    grid-column: 1;
+    grid-row: auto;
     justify-self: start;
   }
 }
