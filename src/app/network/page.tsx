@@ -18,9 +18,16 @@ import {
 } from "lucide-react";
 
 import styles from "./page.module.scss";
-import CurrentYear from "../components/CurrentYear";
-import { Suspense } from "react";
-import MobileMenu from "../components/MobileMenu";
+import DomainShell, { type DomainLink } from "../components/DomainShell";
+
+const domainLinks: DomainLink[] = [
+  { href: "/", label: "صفحه اصلی" },
+  { href: "/network/courses", label: "دوره‌های آموزشی" },
+  { href: "/network#categories", label: "دسته‌بندی‌ها" },
+  { href: "/network/instructors", label: "اساتید" },
+  { href: "/network#about", label: "درباره ما" },
+  { href: "/network#contact", label: "تماس با ما" },
+];
 
 const categories = [
   {
@@ -136,36 +143,14 @@ const steps = [
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      {/* Header */}
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <Link href="/" className={styles.logo}>
-            <span className={styles.logoIcon}>
-              <GraduationCap size={25} />
-            </span>
-            <span>
-              <strong>SkillHub</strong>
-              <small>ACADEMY</small>
-            </span>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/">صفحه اصلی</Link>
-            <Link href="/network/courses">دوره های آموزشی</Link>
-            <a href="/network#categories">دسته بندی ها</a>
-            <Link href="/network/instructors">اساتید</Link>
-            <a href="/network#about">درباره ما</a>
-            <a href="/network#contact">تماس با ما</a>
-          </nav>
-
-          <Link href="/network/courses" className={styles.headerButton}>
-            مشاهده دوره ها
-            <ArrowLeft size={16} />
-          </Link>
-          <MobileMenu />
-        </div>
-      </header>
+    <DomainShell
+      name="فناوری شبکه"
+      description="مسیری برای یادگیری مهارت‌های تخصصی و ساختن آینده‌ای حرفه‌ای در دنیای فناوری."
+      homeHref="/network"
+      courseHref="/network/courses"
+      links={domainLinks}
+    >
+      <main className={styles.main}>
 
       {/* Hero */}
       <section className={styles.hero}>
@@ -279,7 +264,7 @@ export default function Home() {
           </div>
 
           <div className={styles.categoryGrid}>
-            {categories.map((category, index) => {
+            {categories.map((category) => {
               const Icon = category.icon;
 
               return (
@@ -447,60 +432,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className={styles.footer} id="contact">
-        <div className={styles.container}>
-          <div className={styles.footerMain}>
-            <div className={styles.footerAbout}>
-              <Link href="/" className={styles.logo}>
-                <span className={styles.logoIcon}>
-                  <GraduationCap size={25} />
-                </span>
-                <span>
-                  <strong>SkillHub</strong>
-                  <small>ACADEMY</small>
-                </span>
-              </Link>
-              <p>
-                مسیری برای یادگیری مهارت های تخصصی و ساختن آینده ای حرفه ای در
-                دنیای فناوری.
-              </p>
-            </div>
-
-            <div>
-              <h3>دسترسی سریع</h3>
-              <Link href="/">صفحه اصلی</Link>
-              <Link href="/network/courses">دوره های آموزشی</Link>
-              <a href="/network#about">درباره ما</a>
-            </div>
-
-            <div>
-              <h3>حوزه های آموزشی</h3>
-              <a href="#categories">شبکه و زیرساخت</a>
-              <a href="#categories">امنیت شبکه</a>
-              <a href="#categories">سرور و رایانش ابری</a>
-            </div>
-
-            <div>
-              <h3>ارتباط با ما</h3>
-              <p>شماره تماس: به زودی</p>
-              <p>آدرس: به زودی</p>
-              <p>ایمیل: به زودی</p>
-            </div>
-          </div>
-
-          <div className={styles.footerBottom}>
-            <span>
-              ©{" "}
-              <Suspense fallback={null}>
-                <CurrentYear />
-              </Suspense>{" "}
-              SkillHub Academy
-            </span>
-            <span>طراحی شده برای یادگیری و پیشرفت</span>
-          </div>
-        </div>
-      </footer>
-    </main>
+      </main>
+    </DomainShell>
   );
 }

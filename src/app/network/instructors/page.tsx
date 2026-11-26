@@ -5,6 +5,7 @@ import {
   ArrowLeft,
   Award,
 } from "lucide-react";
+import Link from "next/link";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import BackLink from "@/app/components/BackLink";
@@ -186,10 +187,10 @@ export default function InstructorsPage() {
           <p>دوره مناسب خود را انتخاب کنید و قدم اول را بردارید.</p>
         </div>
 
-        <a href="/network/courses">
+        <Link href="/network/courses">
           مشاهده دوره ها
           <ArrowLeft size={18} />
-        </a>
+        </Link>
       </section>
     </main>
   );
