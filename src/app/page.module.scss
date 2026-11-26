@@ -36,6 +36,27 @@
   line-height: 2;
 }
 
+.accountLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+  color: #cbd5e1;
+  font-size: 12px;
+
+  a {
+    color: #bfdbfe;
+    font-weight: 700;
+
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
 .logo {
   display: inline-flex;
   align-items: center;
@@ -177,6 +198,11 @@
   .card {
     min-height: 0;
     padding: 30px 20px;
+  }
+
+  .accountLinks {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }
 
