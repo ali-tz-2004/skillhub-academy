@@ -256,6 +256,85 @@
   }
 }
 
+.assessmentBlock {
+  margin-top: 44px;
+  padding: 28px;
+  border: 1px solid var(--domain-border);
+  border-radius: 18px;
+  background: var(--domain-surface);
+}
+
+.assessmentHeading {
+  margin-bottom: 20px;
+
+  h3 {
+    margin: 7px 0 0;
+    color: var(--domain-ink);
+    font-size: 19px;
+  }
+}
+
+.assessmentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.assessmentCard {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-content: start;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--domain-border);
+  border-radius: 14px;
+  background: #fff;
+
+  h4 {
+    margin: 0;
+    color: var(--domain-ink);
+    font-size: 14px;
+  }
+
+  p {
+    margin: 8px 0 0;
+    color: var(--domain-muted);
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  ul {
+    display: grid;
+    gap: 7px;
+    margin: 13px 0 0;
+    padding: 0 17px 0 0;
+    color: var(--domain-ink);
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  li::marker {
+    color: var(--domain-primary);
+  }
+}
+
+.assessmentIcon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--domain-primary-soft);
+  color: var(--domain-primary);
+}
+
+.assessmentNote {
+  margin: 15px 0 0;
+  color: var(--domain-muted);
+  font-size: 10px;
+  line-height: 1.9;
+}
+
 .serviceIcon,
 .consultIcon {
   display: grid;
@@ -339,8 +418,14 @@
   }
 
   .courseGrid,
-  .serviceGrid {
+  .serviceGrid,
+  .assessmentGrid {
     grid-template-columns: 1fr;
+  }
+
+  .assessmentBlock {
+    margin-top: 30px;
+    padding: 18px;
   }
 
   .consultation {
