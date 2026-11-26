@@ -12,7 +12,7 @@
   z-index: 10;
   height: 82px;
   background: #fff;
-  border-bottom: 1px solid #edf0f4;
+  border-bottom: 1px solid var(--domain-border);
 
   > .container {
     display: flex;
@@ -30,14 +30,14 @@
 
   strong {
     display: block;
-    color: #142d4e;
+    color: var(--domain-ink);
     font-size: 21px;
     letter-spacing: -0.5px;
   }
 
   small {
     display: block;
-    color: #64748b;
+    color: var(--domain-muted);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -60,7 +60,7 @@
   gap: 24px;
 
   a {
-    color: #475569;
+    color: var(--domain-muted);
     font-size: 13px;
     transition: color 0.2s ease;
 
@@ -90,7 +90,7 @@
 
 .footer {
   padding-top: 65px;
-  background: #0d2036;
+  background: var(--domain-background-footer);
   color: white;
 }
 
@@ -113,7 +113,7 @@
 
     a,
     p {
-      color: #a9bacd;
+      color: var(--domain-muted-on-dark);
       font-size: 12px;
     }
   }
@@ -127,7 +127,7 @@
   p {
     max-width: 260px;
     margin-top: 20px;
-    color: #a9bacd;
+    color: var(--domain-muted-on-dark);
     font-size: 12px;
     line-height: 2.3;
   }
@@ -138,7 +138,7 @@
   justify-content: space-between;
   padding-block: 22px;
   border-top: 1px solid #ffffff20;
-  color: #8fa3ba;
+  color: var(--domain-muted-on-dark);
   font-size: 11px;
 }
 
