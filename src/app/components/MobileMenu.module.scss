@@ -10,7 +10,7 @@
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   background: #fff;
-  color: #142d4e;
+  color: var(--domain-primary, #142d4e);
   cursor: pointer;
 }
 
@@ -45,7 +45,7 @@
     }
 
     &:hover {
-      color: #2563eb;
+      color: var(--domain-primary, #2563eb);
     }
   }
 }

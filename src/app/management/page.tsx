@@ -1,11 +1,6 @@
-import ComingSoonDomain from "../components/ComingSoonDomain";
+import DomainHomePage from "../components/DomainHomePage";
+import { domainHomeContent } from "../data/domains";
 
-export default function ManagementPage() {
-  return (
-    <ComingSoonDomain
-      name="مدیریت"
-      description="آموزش مهارت‌های مدیریتی و کسب‌وکار برای رشد حرفه‌ای."
-      homeHref="/management"
-    />
-  );
+export default function ManagementHomePage() {
+  return <DomainHomePage content={domainHomeContent.management} />;
 }

@@ -1,11 +1,6 @@
-import ComingSoonDomain from "../components/ComingSoonDomain";
+import DomainHomePage from "../components/DomainHomePage";
+import { domainHomeContent } from "../data/domains";
 
-export default function LawPage() {
-  return (
-    <ComingSoonDomain
-      name="حقوق"
-      description="دوره‌های کاربردی حقوقی برای گسترش دانش و مهارت‌های حرفه‌ای."
-      homeHref="/law"
-    />
-  );
+export default function LawHomePage() {
+  return <DomainHomePage content={domainHomeContent.law} />;
 }
