@@ -15,6 +15,11 @@ export type DomainHomeContent = {
   bestSellingCourses: DomainCoursePreview[];
   popularCourses: DomainCoursePreview[];
   services: string[];
+  assessment?: {
+    exam: { title: string; description: string; items: string[] };
+    certificate: { title: string; description: string; items: string[] };
+    note: string;
+  };
   consultation: string;
   courseHref: string;
   links: { href: string; label: string }[];
@@ -122,10 +127,34 @@ export const domainHomeContent: Record<string, DomainHomeContent> = {
     bestSellingCourses: [networkCourses[1], networkCourses[2], networkCourses[3]],
     popularCourses: [networkCourses[1], networkCourses[3], networkCourses[0]],
     services: [
-      "دوره‌های آموزشی در حوزهٔ شبکه و زیرساخت",
-      "آموزش مهارت‌های امنیت شبکه",
-      "مسیرهای یادگیری سرور و رایانش ابری",
+      "دوره‌های تخصصی از مبانی شبکه تا زیرساخت",
+      "تمرین عملی در آزمایشگاه‌های آموزشی",
+      "راهنمایی برای انتخاب مسیر و ادامهٔ یادگیری",
     ],
+    assessment: {
+      exam: {
+        title: "ارزیابی پایان دوره",
+        description:
+          "نمونه‌ای از ارزیابی آموخته‌ها با ترکیبی از پرسش‌های مفهومی و تمرین‌های عملی مرتبط با دوره.",
+        items: [
+          "مرور مفاهیم کلیدی دوره",
+          "تمرین عملی در محیط آزمایشگاهی",
+          "ارائهٔ بازخورد آموزشی به هنرجو",
+        ],
+      },
+      certificate: {
+        title: "گواهینامهٔ داخلی آموزشگاه",
+        description:
+          "نمونهٔ گواهینامه برای ثبت پایان موفق دوره و مشخصات مسیر آموزشی هنرجو.",
+        items: [
+          "عنوان و مدت دورهٔ گذرانده‌شده",
+          "نام هنرجو و تاریخ پایان دوره",
+          "اطلاعات صادرکنندهٔ گواهینامه",
+        ],
+      },
+      note:
+        "جزئیات آزمون و شرایط دریافت گواهینامه نمونه هستند؛ این نسخه آزمون برگزار نمی‌کند و گواهینامه صادر نمی‌کند.",
+    },
     consultation:
       "برای انتخاب مسیر آموزشی متناسب با هدف و سطح خود، با آموزشگاه تماس بگیرید.",
     courseHref: "/network/courses",

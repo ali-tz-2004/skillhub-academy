@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { ArrowLeft, BookOpen, GraduationCap, Headset, Layers3 } from "lucide-react";
+import {
+  ArrowLeft,
+  BadgeCheck,
+  BookOpen,
+  ClipboardCheck,
+  GraduationCap,
+  Headset,
+  Layers3,
+} from "lucide-react";
 import type { DomainHomeContent, DomainCoursePreview } from "../data/domains";
 import DomainShell from "./DomainShell";
 import styles from "./DomainHomePage.module.scss";
@@ -122,6 +130,45 @@ export default function DomainHomePage({ content }: DomainHomePageProps) {
               </article>
             ))}
           </div>
+          {content.assessment && (
+            <div className={styles.assessmentBlock}>
+              <div className={styles.assessmentHeading}>
+                <span className={styles.eyebrow}>ارزیابی و گواهینامه</span>
+                <h3>آزمون‌ها و گواهینامه‌های داخلی</h3>
+              </div>
+              <div className={styles.assessmentGrid}>
+                <article className={styles.assessmentCard}>
+                  <span className={styles.assessmentIcon} aria-hidden="true">
+                    <ClipboardCheck size={22} />
+                  </span>
+                  <div>
+                    <h4>{content.assessment.exam.title}</h4>
+                    <p>{content.assessment.exam.description}</p>
+                    <ul>
+                      {content.assessment.exam.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+                <article className={styles.assessmentCard}>
+                  <span className={styles.assessmentIcon} aria-hidden="true">
+                    <BadgeCheck size={22} />
+                  </span>
+                  <div>
+                    <h4>{content.assessment.certificate.title}</h4>
+                    <p>{content.assessment.certificate.description}</p>
+                    <ul>
+                      {content.assessment.certificate.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </div>
+              <p className={styles.assessmentNote}>{content.assessment.note}</p>
+            </div>
+          )}
         </section>
 
         <section className={styles.consultation} id="consultation">
