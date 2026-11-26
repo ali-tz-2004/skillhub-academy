@@ -73,13 +73,26 @@ export default async function CourseDetailPage({
         </div>
       </section>
 
+      <nav className={styles.sectionNavigation} aria-label="بخش‌های صفحهٔ دوره">
+        <div className={styles.sectionNavigationInner}>
+          <a href="#introduction">معرفی دوره</a>
+          <a href="#syllabus">سرفصل‌ها</a>
+          <a href="#prerequisites">پیش‌نیاز و گواهی</a>
+          <a href="#classes">کلاس‌های فعال</a>
+          <a href="#instructor">مدرس</a>
+          <a href="#faq">پرسش‌های متداول</a>
+          <a href="#reviews">دیدگاه‌ها</a>
+          <a href="#payments">شهریه و پرداخت</a>
+        </div>
+      </nav>
+
       <div className={styles.sampleNotice}>
         اطلاعات کلاس‌ها، مدرس، گواهی، پرداخت و دیدگاه‌ها در این صفحه برای نمایش رابط کاربری نمونه هستند.
       </div>
 
       <div className={styles.content}>
         <div className={styles.main}>
-          <section className={styles.section}>
+          <section className={styles.section} id="introduction">
             <div className={styles.sectionTitle}>
               <BookOpen size={20} aria-hidden="true" />
               <h2>معرفی دوره</h2>
@@ -87,7 +100,7 @@ export default async function CourseDetailPage({
             <p className={styles.bodyText}>{details.extraDescription}</p>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="syllabus">
             <div className={styles.sectionTitle}>
               <CheckCircle2 size={20} aria-hidden="true" />
               <h2>سرفصل‌های دوره</h2>
@@ -102,7 +115,7 @@ export default async function CourseDetailPage({
             </ul>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="prerequisites">
             <div className={styles.sectionTitle}>
               <Award size={20} aria-hidden="true" />
               <h2>پیش‌نیاز و گواهی</h2>
@@ -123,7 +136,7 @@ export default async function CourseDetailPage({
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="classes">
             <div className={styles.sectionTitle}>
               <CalendarDays size={20} aria-hidden="true" />
               <h2>کلاس‌های فعال</h2>
@@ -149,7 +162,7 @@ export default async function CourseDetailPage({
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="instructor">
             <div className={styles.sectionTitle}>
               <UserRound size={20} aria-hidden="true" />
               <h2>مدرس دوره</h2>
@@ -165,7 +178,7 @@ export default async function CourseDetailPage({
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="faq">
             <div className={styles.sectionTitle}>
               <h2>پرسش‌های متداول</h2>
             </div>
@@ -179,7 +192,7 @@ export default async function CourseDetailPage({
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="reviews">
             <div className={styles.sectionTitle}>
               <Star size={20} aria-hidden="true" />
               <h2>دیدگاه هنرجویان</h2>
@@ -205,7 +218,7 @@ export default async function CourseDetailPage({
           </section>
         </div>
 
-        <aside className={styles.sidebar}>
+        <aside className={styles.sidebar} id="payments">
           <div className={`${styles.visual} ${styles[course.color]}`}>
             <span>{course.icon}</span>
             <small>{course.category}</small>
