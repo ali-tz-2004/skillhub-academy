@@ -20,14 +20,14 @@ const fields = [
     title: "حقوق",
     description: "آموزش های تخصصی حوزه حقوق",
     icon: Scale,
-    href: null,
+    href: "/law",
     color: "purple",
   },
   {
     title: "مدیریت",
     description: "مهارت های مدیریتی و کسب و کار",
     icon: BriefcaseBusiness,
-    href: null,
+    href: "/management",
     color: "green",
   },
 ];

@@ -5,16 +5,13 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import styles from "./MobileMenu.module.scss";
 
-const links = [
-  { href: "/", label: "صفحه اصلی" },
-  { href: "/network/courses", label: "دوره های آموزشی" },
-  { href: "/network/instructors", label: "اساتید" },
-  { href: "/network#categories", label: "دسته بندی ها" },
-  { href: "/network#about", label: "درباره ما" },
-  { href: "/network#contact", label: "تماس با ما" },
-];
+type MenuLink = { href: string; label: string };
 
-export default function MobileMenu() {
+type MobileMenuProps = {
+  links: MenuLink[];
+};
+
+export default function MobileMenu({ links }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {

@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Clock3, Users } from "lucide-react";
+import { CheckCircle2, Clock3, Users } from "lucide-react";
 import { courses, getCourse } from "../../../data/courses";
 import styles from "./page.module.scss";
 import BackLink from "@/app/components/BackLink";
