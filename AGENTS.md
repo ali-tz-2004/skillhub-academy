@@ -470,3 +470,71 @@ For small tasks, proceed directly without unnecessary planning.
 - Mention important trade-offs.
 - Ask for clarification only when necessary.
 - Do not overwhelm the user with unnecessary architecture.
+
+
+
+
+## 23. Git Workflow and Branch Management
+
+Follow a branch-based workflow for every development stage, feature, bug fix, or independent task.
+
+### Branch Rules
+
+- Keep `main` as the stable branch.
+- Never implement features or make development changes directly on `main`.
+- Before starting any new task, switch to `main` and ensure it is up to date with the latest available changes.
+- Create a new branch from `main` for each independent task or development stage.
+- Use descriptive branch names with the following conventions:
+  - `feat/feature-name` for new features.
+  - `fix/issue-name` for bug fixes.
+  - `refactor/feature-name` for refactoring.
+  - `docs/document-name` for documentation.
+  - `style/component-name` for UI or styling changes that do not affect functionality.
+- Use lowercase names and hyphens in branch names.
+- Keep each branch focused on a single task or stage.
+- Do not combine unrelated features in one branch.
+
+### Development Workflow
+
+For every task, follow these steps:
+
+1. Switch to `main`.
+2. Ensure `main` is up to date before starting.
+3. Create a new branch from `main` using an appropriate branch name.
+4. Implement only the requested task on that branch.
+5. Run relevant validation checks, including ESLint, TypeScript checks, and build when appropriate.
+6. Review the changes and ensure there are no unrelated modifications.
+7. Commit the completed and verified changes with a meaningful commit message.
+8. Switch back to `main`.
+9. Merge the completed branch into `main`.
+10. Verify the merge result.
+11. Return to `main` and ensure it is ready for the next stage.
+
+### Merge Rules
+
+- Only merge branches containing completed and verified work.
+- Do not merge if relevant validation checks fail.
+- Prefer fast-forward merges when possible. If fast-forward is not possible, use a regular merge commit.
+- Preserve the development history when merging.
+- Resolve merge conflicts carefully without discarding existing changes.
+- Never force-push, hard-reset, or perform destructive Git operations.
+- Never delete a branch before confirming that its changes have been successfully merged.
+- Do not automatically push branches or commits to a remote repository unless explicitly requested.
+
+### Safety
+
+- Before executing Git commands, inspect the current branch and working tree.
+- Never discard, overwrite, or revert uncommitted user changes.
+- If uncommitted changes exist on `main`, do not automatically move, stash, commit, or discard them. Inform the user and wait for instructions when necessary.
+- Do not modify Git configuration without explicit approval.
+- Do not execute destructive Git commands.
+- If a Git operation could risk losing work, stop and ask for confirmation.
+
+### Task Scope
+
+- Create a new branch for every approved roadmap stage.
+- If a stage contains several tightly related tasks, they may share the same branch.
+- For independent features, use separate branches.
+- Do not create branches during project assessment or roadmap planning.
+- Do not merge into `main` until the user-requested stage is completed and verified.
+- Do not begin the next stage until the previous stage has been successfully merged into `main`.
